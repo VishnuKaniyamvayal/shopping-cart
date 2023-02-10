@@ -1,0 +1,23 @@
+<section>
+    <div class="container">
+    <form method="POST" enctype="multipart/form-data" action="/admin/add-product">
+  <div class="form-group">
+    <label for="Name">Product name</label>
+    <input type="text" name="name" class="form-control" id="Name" placeholder="Ex:iphone 12 mini">
+  </div>
+  <div class="form-group">
+    <label for="Category">Category</label>
+    <input type="text" name="category" class="form-control" id="Category" placeholder="Ex:mobile,laptop,..">
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea name="description" class="form-control" id="description" rows="3"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="Image">Image</label>
+    <input type="file" name="image" class="form-control" id="Image">
+  </div>
+  <button type="submit" class="btn btn-primary mb-2">Add Product</button>
+</form>
+    </div>
+</section>
