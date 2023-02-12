@@ -1,22 +1,18 @@
-const { MongoClient }  = require("mongodb")
+const mongoose = require("mongoose")
 
-let dbCollection
 
-let product = {"id":1,"title":"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops","price":109.95,"description":"Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday","category":"men's clothing","image":"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg","rating":{"rate":3.9,"count":120}}
 
-module.exports = {
-    connectToDb: (callback)=>{
-        MongoClient.connect("mongodb://localhost:27017").then((client)=>{
-            dbCollection = client.db("products")
-            dbCollection.products.insertOne(product).then(()=>{
-                console.log("product added")
-            })
-            return callback()
-        })
-        .catch((err)=>{console.log(err)
-        return callback(err)
-        }) 
-    },
+
+module.exports.connectToDb = ()=>{
+
+    mongoose.connect('mongodb://localhost:27017/Shopping_cart', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+        
+      });
+}
+const db = mongoose.connection
+module.exports.get = ()=>db
+
+
     
-
-    }

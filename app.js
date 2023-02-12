@@ -7,7 +7,7 @@ var hbs = require("express-handlebars")
 var userRouter = require('./routes/user');
 var adminRouter = require('./routes/admin');
 var fileupload = require("express-fileupload") 
-var {connectToDb, getDb} = require("./config/connection")
+var {connectToDb} = require("./config/connection")
 var app = express();
 
 // view engine setup
@@ -20,12 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileupload())
-connectToDb((err)=>{
-  if(err){
-    console.log(err.message)
-  }
-  else console.log("database connected")
-})
+connectToDb();
 app.use('/', userRouter);
 app.use('/admin', adminRouter);
 

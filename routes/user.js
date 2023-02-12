@@ -1,39 +1,12 @@
 var express = require('express');
+const productHelper = require('../helpers/product-helpers');
 var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  let products = [
-    {
-      name:"Iphone 11",
-      category:"mobile",
-      description:"this is iphone 11",
-      imageUrl:"https://img4.gadgetsnow.com/gd/images/products/additional/large/G390830_View_1/mobiles/smartphones/apple-iphone-14-pro-256-gb-deep-purple-6-gb-ram-.jpg"
+  productHelper.getAllProducts().then((products)=>{
 
-    },
-    {
-      name:"Redmi 11pro", 
-      category:"mobile",
-      description:"this is nice phone",
-      imageUrl:"https://m.media-amazon.com/images/I/71u-1krs2XL._SX679_.jpg"
-      
-    },
-    {
-      name:"Oppo reno 8", 
-      category:"mobile",
-      description:"this is nice phone",
-      imageUrl:"https://m.media-amazon.com/images/I/21nVxZCBiqL._AC_UY327_FMwebp_QL65_.jpg"
-      
-    },
-    {
-      name:"samsung s22 ultra", 
-      category:"mobile",
-      description:"this is nice phone",
-      imageUrl:"https://m.media-amazon.com/images/I/71qZERyxy6L._AC_UY327_FMwebp_QL65_.jpg"
-      
-    }
-  ]
-  res.render('index', { products,admin:false });
+    res.render("user/view-products",{products,admin:false})
+  })
 });
-
 module.exports = router;

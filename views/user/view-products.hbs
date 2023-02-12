@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="./view-products.css">
+    <section>
+        <div class="container mt-4 " style="width: 100%;">
+            <div class="row"  style="display: flex; justify-content: center; align-items: center;">
+            {{#each products}}
+                <div class="col-md-3" id="card" style="margin-top: 30px;display: flex; justify-content: center; align-items: center;" >
+
+                    <div class="card" style="width: 18rem;">
+                        <img src="./images/product-images/{{this._id}}.jpg "
+                            class="card-img-top" alt="Image" style="width: 200px; height: 200px; object-fit: contain; margin-left: auto; margin-right: auto; margin-top: 5px; margin-bottom: 5px;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{this.name}}</h5>
+                            <p class="card-text" style="min-height: 130px; max-height: 130px; overflow-x: hidden;">{{this.description}}</p>
+                            <a href="#" class="btn btn-primary">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+               {{/each}} 
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
