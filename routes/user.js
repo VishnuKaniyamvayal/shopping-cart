@@ -6,7 +6,21 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   productHelper.getAllProducts().then((products)=>{
 
-    res.render("user/view-products",{products,admin:false})
+    res.render("user/view-products",{products})
   })
 });
+
+router.get("/login",(req,res)=>{
+  res.render("user/login")
+
+})
+
+router.get("/signup",(req,res)=>{
+  res.render("user/signup")
+
+})
+router.post("/signup",(req,res)=>{
+  
+
+})
 module.exports = router;
